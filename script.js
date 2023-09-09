@@ -66,10 +66,13 @@ function generateLifeWeeks() {
 
       // Event overlay
       eventsData.events.forEach((event) => {
-        const eventBegin = new Date(event.begin);
+        const eventBegin = event.begin ? new Date(event.begin) : birthDateValue;
         const eventEnd = event.end ? new Date(event.end) : today;
 
-        if (cellDateBegin >= eventBegin && cellDateEnd <= eventEnd) {
+        if (
+          (eventBegin <= cellDateEnd && eventEnd >= cellDateBegin) ||
+          (eventBegin <= cellDateBegin && eventEnd >= cellDateEnd)
+        ) {
           weekCell.style.backgroundColor = event.color;
           weekCell.title =
             (weekCell.title ? weekCell.title + "\n" : "") + event.description;
