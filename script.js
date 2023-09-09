@@ -147,7 +147,23 @@ function addWeeks(date, weeks) {
   return newDate;
 }
 
+function updateURLWithGistId(gistId) {
+    if (window.history && window.history.pushState) {
+        const newURL = new URL(window.location.href);
+        newURL.searchParams.set('gistId', gistId);
+        window.history.pushState({}, '', newURL.toString());
+    }
+}
+
+function getGistIdFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('gistId');
+}
 
 window.onload = function() {
+    const urlGistId = getGistIdFromURL();
+    if (urlGistId) {
+        document.getElementById("gistId").value = urlGistId;
+    }
     loadGistJSONP();
 }
