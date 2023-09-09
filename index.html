@@ -1,59 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Life in Weeks</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<div class="container">
-  <h1>Life in Weeks</h1>
-
-  <form id="inputForm">
-      <div class="input-group">
+  <head>
+    <meta charset="UTF-8">
+    <title>Life in Weeks</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Life in Weeks</h1>
+      <form id="inputForm">
+        <div class="input-group">
           <label for="profile">Profile:</label>
           <select id="profile"></select>
-      </div>
-
-    <details>
-      <summary>Advanced</summary>
-
-      <div class="input-group">
-          <label for="gistId">Profiles Gist ID:</label>
-          <input type="text" id="gistId" value="108c498d99542aae3d5fe6623f1e7638">
-      </div>
-
-      <div class="input-group">
-        <label for="birthDate">Birth Date:</label>
-        <input type="date" id="birthDate">
-      </div>
-
-      <div class="input-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title">
-      </div>
-
-      <div class="input-group">
-        <label for="yearsToShow">Years to Show:</label>
-        <input type="number" id="yearsToShow">
-      </div>
-
-      <div class="input-group">
-        <label for="eventsData">Events Data (JSON Format):</label>
-        <textarea id="eventsData" rows="5"></textarea>
-      </div>
-
-    </details>
-
-    <button type="button" id="generate">Generate Weeks</button>
-  </form>
-
-  <table id="weeksTable"></table>
-</div>
-
-<script src="./script.js"></script>
-  <!-- 100% privacy-first analytics -->
-  <script async defer src="https://sa.moul.io/latest.js"></script>
-  <noscript><img src="https://sa.moul.io/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-</body>
+        </div>
+        <details>
+          <summary>Advanced</summary>
+          <div class="input-group">
+            <label for="gistId">Profiles Gist ID:</label>
+            <input type="text" id="gistId" value="108c498d99542aae3d5fe6623f1e7638">
+          </div>
+          <div class="input-group">
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" id="birthDate">
+          </div>
+          <div class="input-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title">
+          </div>
+          <div class="input-group">
+            <label for="yearsToShow">Years to Show:</label>
+            <input type="number" id="yearsToShow">
+          </div>
+          <div class="input-group">
+            <label for="eventsData">Events Data (JSON Format):</label>
+            <textarea id="eventsData" rows="5"></textarea>
+          </div>
+        </details>
+        <button type="button" id="generate">Generate Weeks</button>
+      </form>
+      <table id="weeksTable"></table>
+    </div>
+    <script src="./script.js"></script>
+    <!-- 100% privacy-first analytics -->
+    <script async defer src="https://sa.moul.io/latest.js"></script>
+    <noscript>
+      <img src="https://sa.moul.io/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" />
+    </noscript>
+  </body>
 </html>
