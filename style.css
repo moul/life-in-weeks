@@ -1,98 +1,82 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
+     font-family: Arial, sans-serif;
+     background-color: #f4f4f4;
+     margin: 0;
+     padding: 20px;
 }
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ .container {
+     max-width: 600px;
+     margin: auto;
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 5px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-h1 {
-  text-align: center;
+ h1 {
+     text-align: center;
 }
-
-.input-group {
-  margin-bottom: 10px;
+ .input-group {
+     margin-bottom: 10px;
 }
-
-label {
-  display: block;
-  margin-bottom: 5px;
+ label {
+     display: block;
+     margin-bottom: 5px;
 }
-
-input[type="text"],
-input[type="date"],
-input[type="number"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  font-size: 9px;
+ input[type="text"], input[type="date"], input[type="number"], textarea {
+     width: 100%;
+     padding: 10px;
+     box-sizing: border-box;
+     border: 1px solid #ddd;
+     border-radius: 3px;
+     font-size: 9px;
 }
-
-button {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  font-size: 16px;
-  border: none;
-  border-radius: 3px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
+ button {
+     display: block;
+     width: 100%;
+     padding: 10px 15px;
+     font-size: 16px;
+     border: none;
+     border-radius: 3px;
+     background-color: #007bff;
+     color: #fff;
+     cursor: pointer;
 }
-
-button:hover {
-  background-color: #0056b3;
+ button:hover {
+     background-color: #0056b3;
 }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
+ table {
+     width: 100%;
+     border-collapse: collapse;
 }
-
-th, td {
-    font-size: 6px;
-    border: 1px solid #ddd;
-    text-align: center;
-    height: 7px;
-    width: 7px !important;
+ th, td {
+     font-size: 6px;
+     border: 1px solid #ddd;
+     text-align: center;
+     height: 7px;
+     width: 7px !important;
 }
-
-td.week {
-  background-color: grey;
+ td.week {
+     background-color: grey;
 }
-
-td.event {
-  position: relative;
+ td.event {
+     position: relative;
 }
-
-td.event span {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  padding: 5px;
-  border: 1px solid #f00;
-  z-index: 1;
-  white-space: nowrap;
+ td.event span {
+     display: none;
+     position: absolute;
+     top: 100%;
+     left: 50%;
+     transform: translateX(-50%);
+     background-color: white;
+     padding: 5px;
+     border: 1px solid #f00;
+     z-index: 1;
+     white-space: nowrap;
 }
-
-td.event:hover span {
-  display: block;
+ td.event:hover span {
+     display: block;
 }
-
-td.week.multiple-of-5 {
-  font-weight: bold;
+ td.week.multiple-of-5 {
+     font-weight: bold;
 }
+ 
