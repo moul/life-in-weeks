@@ -1,35 +1,63 @@
-window.onload = function() {
-    const profileSelect = document.getElementById('profile');
+function processProfiles(data) {
+    console.log(data);
+    window.profiles = data;
+    updateProfileSelect(data);
+}
 
-    // Clear any existing options
-    profileSelect.innerHTML = '';
+function updateProfileSelect(profiles) {
+    const profileSelect = document.getElementById("profile");
+    profileSelect.innerHTML = ""; // Clear the select options
 
-    // Populate the dropdown with profiles
-    for (let profile in profiles) {
-        let option = document.createElement('option');
-        option.value = profile;
-        option.text = profile;
+    Object.keys(profiles).forEach((profileName) => {
+        const option = document.createElement("option");
+        option.value = profileName;
+        option.text = profileName;
         profileSelect.appendChild(option);
-    }
-
-    // Update form fields when a profile is selected
-    profileSelect.addEventListener('change', function() {
-        let selectedProfile = profiles[this.value];
-
-        document.getElementById('birthDate').value = selectedProfile.birthDate;
-        document.getElementById('title').value = selectedProfile.title;
-        document.getElementById('yearsToShow').value = selectedProfile.yearsToShow;
-        document.getElementById('eventsData').value = JSON.stringify(selectedProfile.eventsData, null, 2);
-
-        generateLifeWeeks();
     });
 
-    document
-        .getElementById("generate")
-        .addEventListener("click", generateLifeWeeks);
+    profileSelect.selectedIndex = 0;
 
-    // Trigger the change event to populate the form with the first profile
-    profileSelect.dispatchEvent(new Event('change'));
+    loadProfile(profiles[profileSelect.value]);
+}
+
+document.getElementById("profile").addEventListener("change", loadSelectedProfile);
+document.getElementById("generate").addEventListener("click", generateLifeWeeks);
+
+function loadSelectedProfile() {
+    const selectedValue = this.value;
+    const selectedProfile = profiles[selectedValue];
+    loadProfile(selectedProfile)
+}
+
+function loadProfile(selectedProfile) {
+    console.log(profile);
+
+    document.getElementById("birthDate").value = selectedProfile.birthDate;
+    document.getElementById("title").value = selectedProfile.title;
+    document.getElementById("yearsToShow").value = selectedProfile.yearsToShow;
+
+    const eventsDataTextarea = document.getElementById("eventsData");
+    eventsDataTextarea.value = JSON.stringify(selectedProfile.eventsData, null, 2);
+
+    generateLifeWeeks();
+}
+
+async function loadGistJSONP() {
+    const gistId = document.getElementById("gistId").value;
+
+    try {
+        // Fetch the gist using GitHub API to get the raw URL of the profiles.js file
+        let response = await fetch(`https://api.github.com/gists/${gistId}`);
+        let data = await response.json();
+
+        // Get the raw_url of the "profiles.js" from the gist's data
+        let rawUrl = data.files["profiles.js"].raw_url;
+
+        let fileContent = data.files["profiles.js"].content;
+        eval(fileContent);
+    } catch (error) {
+        console.error("Error loading the JSONP file:", error);
+    }
 }
 
 function generateLifeWeeks() {
@@ -117,4 +145,9 @@ function addWeeks(date, weeks) {
   const newDate = new Date(date.valueOf());
   newDate.setDate(newDate.getDate() + 7 * weeks);
   return newDate;
+}
+
+
+window.onload = function() {
+    loadGistJSONP();
 }
