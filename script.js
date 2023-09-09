@@ -1,9 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-  generateLifeWeeks(); // Generate the table on startup
-  document
-    .getElementById("generate")
-    .addEventListener("click", generateLifeWeeks);
-});
+window.onload = function() {
+    const profileSelect = document.getElementById('profile');
+
+    // Clear any existing options
+    profileSelect.innerHTML = '';
+
+    // Populate the dropdown with profiles
+    for (let profile in profiles) {
+        let option = document.createElement('option');
+        option.value = profile;
+        option.text = profile;
+        profileSelect.appendChild(option);
+    }
+
+    // Update form fields when a profile is selected
+    profileSelect.addEventListener('change', function() {
+        let selectedProfile = profiles[this.value];
+
+        document.getElementById('birthDate').value = selectedProfile.birthDate;
+        document.getElementById('title').value = selectedProfile.title;
+        document.getElementById('yearsToShow').value = selectedProfile.yearsToShow;
+        document.getElementById('eventsData').value = JSON.stringify(selectedProfile.eventsData, null, 2);
+
+        generateLifeWeeks();
+    });
+
+    document
+        .getElementById("generate")
+        .addEventListener("click", generateLifeWeeks);
+
+    // Trigger the change event to populate the form with the first profile
+    profileSelect.dispatchEvent(new Event('change'));
+}
 
 function generateLifeWeeks() {
   const table = document.getElementById("weeksTable");
