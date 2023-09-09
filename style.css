@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 600px;
   margin: auto;
   background-color: #fff;
   padding: 20px;
@@ -36,7 +36,7 @@ textarea {
   box-sizing: border-box;
   border: 1px solid #ddd;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: 9px;
 }
 
 button {
@@ -60,12 +60,12 @@ table {
   border-collapse: collapse;
 }
 
-th,
-td {
-  border: 1px solid #ddd;
-  text-align: center;
-  height: 20px;
-  width: 20px;
+th, td {
+    font-size: 6px;
+    border: 1px solid #ddd;
+    text-align: center;
+    height: 7px;
+    width: 7px !important;
 }
 
 td.week {
